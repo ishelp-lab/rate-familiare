@@ -25,6 +25,8 @@
 
   const reasonChips = document.querySelectorAll('.ios-chip');
   const feedbackDetails = document.getElementById('feedbackDetails');
+  const feedbackName = document.getElementById('feedbackName');
+  const feedbackContact = document.getElementById('feedbackContact');
   const feedbackRoutePill = document.getElementById('feedbackRoutePill');
   const feedbackTitle = document.getElementById('feedbackTitle');
   const feedbackSubtitle = document.getElementById('feedbackSubtitle');
@@ -132,6 +134,8 @@
       route: 'private_feedback',
       reasons: Array.from(state.reasons),
       comment: feedbackDetails.value.trim(),
+      name: feedbackName.value.trim(),
+      contact: feedbackContact.value.trim(),
       timestamp: new Date().toISOString(),
     });
 

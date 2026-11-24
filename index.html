@@ -14,20 +14,21 @@
 </head>
 <body>
   <main class="app-shell">
+    <header class="brand-header">
+      <div class="brand-logo-wrap">
+        <img
+          src="logo.png"
+          alt="Studio Familiare"
+          class="brand-logo-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="brand-logo-fallback" style="display:none;">Studio Familiare</div>
+      </div>
+      <span class="brand-location">Studio Familiare · Uberlândia</span>
+    </header>
+
     <!-- TELA 1: AVALIAÇÃO POR ESTRELAS -->
     <section class="app-screen is-active" id="screen-rating" data-screen="rating">
-      <header class="brand-header">
-        <div class="brand-logo-wrap">
-          <img
-            src="logo.png"
-            alt="Studio Familiare"
-            class="brand-logo-img"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div class="brand-logo-fallback" style="display:none;">Studio Familiare</div>
-        </div>
-        <span class="brand-location">Studio Familiare · Uberlândia</span>
-      </header>
 
       <div class="ios-card hero-card">
         <div class="hero-icon-badge" aria-hidden="true">
@@ -105,6 +106,23 @@
           rows="3"
           placeholder="Conte brevemente o motivo (opcional)..."
         ></textarea>
+
+        <div class="ios-id-group">
+          <span class="ios-label">Deseja se identificar? (opcional)</span>
+          <input
+            id="feedbackName"
+            type="text"
+            class="ios-input"
+            placeholder="Nome"
+            autocomplete="name"
+          />
+          <input
+            id="feedbackContact"
+            type="text"
+            class="ios-input"
+            placeholder="Contato (e-mail ou whatsapp)"
+          />
+        </div>
 
         <button type="button" class="ios-cta-btn" id="btnSubmitFeedback">
           Enviar feedback
