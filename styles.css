@@ -91,6 +91,8 @@ body {
   max-height: 48px;
   width: auto;
   object-fit: contain;
+  /* Converte a logo branca original para o marrom escuro da marca (#493627) */
+  filter: brightness(0) saturate(100%) invert(21%) sepia(19%) saturate(820%) hue-rotate(344deg) brightness(93%) contrast(92%);
 }
 
 .brand-logo-fallback {
