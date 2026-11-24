@@ -25,11 +25,13 @@
 
   const reasonChips = document.querySelectorAll('.ios-chip');
   const feedbackDetails = document.getElementById('feedbackDetails');
+  const feedbackRoutePill = document.getElementById('feedbackRoutePill');
+  const feedbackTitle = document.getElementById('feedbackTitle');
+  const feedbackSubtitle = document.getElementById('feedbackSubtitle');
   const btnBackFromFeedback = document.getElementById('btnBackFromFeedback');
   const btnSubmitFeedback = document.getElementById('btnSubmitFeedback');
 
   const googleStarsBadge = document.getElementById('googleStarsBadge');
-  const btnBackFromGoogle = document.getElementById('btnBackFromGoogle');
   const btnOpenGoogle = document.getElementById('btnOpenGoogle');
 
   if (GOOGLE_REVIEW_URL) {
@@ -74,10 +76,26 @@
   function proceedFromRating() {
     if (!state.rating) return;
 
-    if (state.rating <= 3) {
+    if (state.rating <= 4) {
+      const isFourStars = state.rating === 4;
+      btnBackFromFeedback.style.visibility = isFourStars ? 'hidden' : 'visible';
+      btnBackFromFeedback.disabled = isFourStars;
+
+      if (isFourStars) {
+        feedbackRoutePill.className = 'route-pill route-pill-ok';
+        feedbackRoutePill.textContent = '4 ★ · Muito obrigado!';
+        feedbackTitle.textContent = 'Muito obrigado pela confiança!';
+        feedbackSubtitle.textContent = 'Ficamos felizes que tenha gostado! O que podemos melhorar para ser 5 estrelas?';
+      } else {
+        feedbackRoutePill.className = 'route-pill route-pill-warn';
+        feedbackRoutePill.textContent = 'Canal Privado · Atendimento';
+        feedbackTitle.textContent = 'Sentimos muito por isso.';
+        feedbackSubtitle.textContent = 'O que podemos melhorar? Sua mensagem vai direto para nossa equipe.';
+      }
+
       goToScreen('feedback');
     } else {
-      googleStarsBadge.textContent = `${state.rating} ★`;
+      googleStarsBadge.textContent = '5 ★';
       goToScreen('google');
     }
   }
@@ -121,8 +139,6 @@
     btnSubmitFeedback.textContent = 'Enviar feedback';
     goToScreen('feedback-sent');
   });
-
-  btnBackFromGoogle.addEventListener('click', () => goToScreen('rating'));
 
   btnOpenGoogle.addEventListener('click', () => {
     sendPayload({

@@ -84,11 +84,11 @@
       </div>
 
       <div class="ios-card">
-        <div class="route-pill route-pill-warn">
+        <div class="route-pill route-pill-warn" id="feedbackRoutePill">
           Canal Privado · Atendimento
         </div>
-        <h2 class="ios-title ios-title-sm">Sentimos muito por isso.</h2>
-        <p class="ios-subtitle ios-subtitle-sm">
+        <h2 class="ios-title ios-title-sm" id="feedbackTitle">Sentimos muito por isso.</h2>
+        <p class="ios-subtitle ios-subtitle-sm" id="feedbackSubtitle">
           O que podemos melhorar? Sua mensagem vai direto para nossa equipe.
         </p>
 
@@ -132,12 +132,10 @@
       </div>
     </section>
 
-    <!-- TELA 2B: NOTA 4 OU 5 ESTRELAS (AGRADECIMENTO + GOOGLE) -->
+    <!-- TELA 2B: NOTA 5 ESTRELAS (AGRADECIMENTO + GOOGLE) -->
     <section class="app-screen" id="screen-google" data-screen="google">
       <div class="ios-sub-header">
-        <button type="button" class="ios-back-btn" id="btnBackFromGoogle">
-          ‹ Voltar
-        </button>
+        <span class="ios-sub-spacer"></span>
         <span class="ios-sub-title">Avaliação Familiare</span>
         <span class="ios-sub-spacer"></span>
       </div>
@@ -155,7 +153,7 @@
 
         <h2 class="ios-title ios-title-sm">Muito obrigado pela confiança!</h2>
         <p class="ios-subtitle ios-subtitle-sm">
-          Você pode deixar essas estrelas no nosso <strong>Google</strong>? Ajuda muitas outras famílias a nos encontrarem!
+          Você pode deixar essas estrelas no nosso <strong>Google</strong>? Leva menos de 30 segundos!
         </p>
 
         <div class="google-preview-card">
@@ -182,10 +180,6 @@
           id="btnOpenGoogle"
         >
           Avaliar no Google agora ↗
-        </a>
-
-        <a href="https://bio-familiare.vercel.app" class="ios-text-btn">
-          Agora não
         </a>
       </div>
     </section>
