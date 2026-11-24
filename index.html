@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F5F2" />
+  <title>Avalie sua experiência · Studio Familiare</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <!-- TELA 1: AVALIAÇÃO POR ESTRELAS -->
+    <section class="app-screen is-active" id="screen-rating" data-screen="rating">
+      <header class="brand-header">
+        <div class="brand-logo-wrap">
+          <img
+            src="logo.png"
+            alt="Studio Familiare"
+            class="brand-logo-img"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="brand-logo-fallback" style="display:none;">Studio Familiare</div>
+        </div>
+        <span class="brand-location">Studio Familiare · Uberlândia</span>
+      </header>
+
+      <div class="ios-card hero-card">
+        <div class="hero-icon-badge" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/>
+          </svg>
+        </div>
+
+        <h1 class="ios-title">Como foi sua experiência hoje?</h1>
+        <p class="ios-subtitle">
+          Sua opinião leva 10 segundos e nos ajuda a eternizar momentos com ainda mais carinho.
+        </p>
+
+        <div class="star-picker" role="radiogroup" aria-label="Avaliação de 1 a 5 estrelas">
+          <button type="button" class="star-btn" data-value="1" aria-label="1 estrela">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.85 5.78 6.38.93-4.61 4.5 1.09 6.35L12 17.06l-5.71 3 1.09-6.35-4.61-4.5 6.38-.93L12 2.5z"/></svg>
+          </button>
+          <button type="button" class="star-btn" data-value="2" aria-label="2 estrelas">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.85 5.78 6.38.93-4.61 4.5 1.09 6.35L12 17.06l-5.71 3 1.09-6.35-4.61-4.5 6.38-.93L12 2.5z"/></svg>
+          </button>
+          <button type="button" class="star-btn" data-value="3" aria-label="3 estrelas">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.85 5.78 6.38.93-4.61 4.5 1.09 6.35L12 17.06l-5.71 3 1.09-6.35-4.61-4.5 6.38-.93L12 2.5z"/></svg>
+          </button>
+          <button type="button" class="star-btn" data-value="4" aria-label="4 estrelas">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.85 5.78 6.38.93-4.61 4.5 1.09 6.35L12 17.06l-5.71 3 1.09-6.35-4.61-4.5 6.38-.93L12 2.5z"/></svg>
+          </button>
+          <button type="button" class="star-btn" data-value="5" aria-label="5 estrelas">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.85 5.78 6.38.93-4.61 4.5 1.09 6.35L12 17.06l-5.71 3 1.09-6.35-4.61-4.5 6.38-.93L12 2.5z"/></svg>
+          </button>
+        </div>
+
+        <div class="rating-feedback-pill" id="ratingFeedbackPill">
+          Toque em uma estrela para avaliar
+        </div>
+
+        <button type="button" class="ios-cta-btn" id="btnContinueRating" disabled>
+          Continuar
+        </button>
+      </div>
+
+      <footer class="ios-footer-trust">
+        <span>Newborn, Família &amp; Gestante · @studio.familiare</span>
+      </footer>
+    </section>
+
+    <!-- TELA 2A: NOTA 1, 2 OU 3 ESTRELAS (FEEDBACK INTERNO) -->
+    <section class="app-screen" id="screen-feedback" data-screen="feedback">
+      <div class="ios-sub-header">
+        <button type="button" class="ios-back-btn" id="btnBackFromFeedback">
+          ‹ Voltar
+        </button>
+        <span class="ios-sub-title">Studio Familiare</span>
+        <span class="ios-sub-spacer"></span>
+      </div>
+
+      <div class="ios-card">
+        <div class="route-pill route-pill-warn">
+          Canal Privado · Atendimento
+        </div>
+        <h2 class="ios-title ios-title-sm">Sentimos muito por isso.</h2>
+        <p class="ios-subtitle ios-subtitle-sm">
+          O que podemos melhorar? Sua mensagem vai direto para nossa equipe.
+        </p>
+
+        <div class="chip-grid" id="reasonChips">
+          <button type="button" class="ios-chip" data-reason="Atendimento">Atendimento</button>
+          <button type="button" class="ios-chip" data-reason="Agendamento / Horário">Agendamento</button>
+          <button type="button" class="ios-chip" data-reason="Ensaio / Conforto">Ensaio / Conforto</button>
+          <button type="button" class="ios-chip" data-reason="Outro">Outro</button>
+        </div>
+
+        <textarea
+          id="feedbackDetails"
+          class="ios-textarea"
+          rows="3"
+          placeholder="Conte brevemente o motivo (opcional)..."
+        ></textarea>
+
+        <button type="button" class="ios-cta-btn" id="btnSubmitFeedback">
+          Enviar feedback
+        </button>
+      </div>
+    </section>
+
+    <!-- TELA 3A: CONFIRMAÇÃO DO FEEDBACK -->
+    <section class="app-screen" id="screen-feedback-sent" data-screen="feedback-sent">
+      <div class="ios-card center-card">
+        <div class="status-circle status-circle-warm">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+
+        <h2 class="ios-title ios-title-sm">Obrigado por nos avisar!</h2>
+        <p class="ios-subtitle ios-subtitle-sm">
+          Recebemos seu retorno no canal interno do <strong>Studio Familiare</strong>. Vamos analisar com muito carinho para melhorar ainda mais.
+        </p>
+
+        <a href="https://bio-familiare.vercel.app" class="ios-cta-btn ios-cta-secondary">
+          Voltar ao Studio Familiare
+        </a>
+      </div>
+    </section>
+
+    <!-- TELA 2B: NOTA 4 OU 5 ESTRELAS (AGRADECIMENTO + GOOGLE) -->
+    <section class="app-screen" id="screen-google" data-screen="google">
+      <div class="ios-sub-header">
+        <button type="button" class="ios-back-btn" id="btnBackFromGoogle">
+          ‹ Voltar
+        </button>
+        <span class="ios-sub-title">Avaliação Familiare</span>
+        <span class="ios-sub-spacer"></span>
+      </div>
+
+      <div class="ios-card center-card">
+        <div class="status-circle status-circle-gold">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l2.4 5.2 5.6.8-4 3.9.9 5.6-4.9-2.6-4.9 2.6.9-5.6-4-3.9 5.6-.8L12 2z"/>
+          </svg>
+        </div>
+
+        <div class="route-pill route-pill-ok">
+          <span id="googleStarsBadge">5 ★</span> · Que alegria!
+        </div>
+
+        <h2 class="ios-title ios-title-sm">Muito obrigado pela confiança!</h2>
+        <p class="ios-subtitle ios-subtitle-sm">
+          Você pode deixar essas estrelas no nosso <strong>Google</strong>? Ajuda muitas outras famílias a nos encontrarem!
+        </p>
+
+        <div class="google-preview-card">
+          <div class="google-g-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
+            </svg>
+          </div>
+          <div class="google-preview-info">
+            <strong>Studio Familiare · Google Avaliações</strong>
+            <span class="google-stars-mini">★★★★★</span>
+            <small>Avaliação oficial no Google</small>
+          </div>
+        </div>
+
+        <a
+          href="https://maps.google.com/?q=Studio+Familiare+Av+Floriano+Peixoto+1767+Uberlandia"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ios-cta-btn"
+          id="btnOpenGoogle"
+        >
+          Avaliar no Google agora ↗
+        </a>
+
+        <a href="https://bio-familiare.vercel.app" class="ios-text-btn">
+          Agora não
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

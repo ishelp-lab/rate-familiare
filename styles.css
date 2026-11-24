@@ -1,0 +1,462 @@
+:root {
+  /* Identidade Studio Familiare (bio-familiare.vercel.app) */
+  --fam-bg: #F8F5F2;
+  --fam-cream: #F1EAE1;
+  --fam-primary: #957150;
+  --fam-primary-dark: #7A5A3E;
+  --fam-gold: #C69553;
+  --fam-gold-soft: #F7EFE4;
+  --fam-dark: #493627;
+
+  /* iOS Clean System Tokens */
+  --ios-card: #FFFFFF;
+  --ios-border: rgba(73, 54, 39, 0.08);
+  --ios-text: #2E241C;
+  --ios-subtext: #7A6B5D;
+  --ios-star-empty: #EAE4DD;
+  --ios-star-gold: #F5B82E;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--fam-bg);
+  color: var(--ios-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 420px;
+}
+
+.app-screen {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  animation: iosSlideIn 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-screen.is-active {
+  display: flex;
+}
+
+@keyframes iosSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Cabeçalho da Marca */
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0 2px;
+}
+
+.brand-logo-wrap {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-img {
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-logo-fallback {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--fam-dark);
+}
+
+.brand-location {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ios-subtext);
+}
+
+/* Cards estilo iOS */
+.ios-card {
+  background: var(--ios-card);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow:
+    0 4px 20px rgba(73, 54, 39, 0.06),
+    0 1px 2px rgba(73, 54, 39, 0.03);
+  border: 1px solid var(--ios-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-card {
+  align-items: center;
+  text-align: center;
+  padding: 28px 20px 24px;
+}
+
+.center-card {
+  align-items: center;
+  text-align: center;
+}
+
+.hero-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--fam-cream), var(--fam-gold-soft));
+  color: var(--fam-primary);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+.ios-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--fam-dark);
+}
+
+.ios-title-sm {
+  font-size: 24px;
+}
+
+.ios-subtitle {
+  margin: 0 0 22px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ios-subtext);
+}
+
+.ios-subtitle-sm {
+  margin-bottom: 18px;
+  font-size: 13.5px;
+}
+
+/* Seletor de Estrelas */
+.star-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.star-btn {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 14px;
+  background: #FAF7F4;
+  padding: 9px;
+  cursor: pointer;
+  color: var(--ios-star-empty);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease;
+}
+
+.star-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.star-btn:hover {
+  transform: scale(1.08);
+  background: var(--fam-cream);
+}
+
+.star-btn.is-selected {
+  color: var(--ios-star-gold);
+  background: rgba(245, 184, 46, 0.14);
+  transform: scale(1.06);
+}
+
+.star-btn:active {
+  transform: scale(0.94);
+}
+
+.rating-feedback-pill {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ios-subtext);
+  background: var(--fam-bg);
+  padding: 6px 14px;
+  border-radius: 99px;
+  margin-bottom: 22px;
+  transition: all 0.2s ease;
+}
+
+.rating-feedback-pill.is-low {
+  background: rgba(245, 184, 46, 0.16);
+  color: #855210;
+}
+
+.rating-feedback-pill.is-high {
+  background: var(--fam-gold-soft);
+  color: var(--fam-primary-dark);
+}
+
+/* Botões CTA estilo iOS */
+.ios-cta-btn {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 15px 18px;
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  background: var(--fam-primary);
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.16s ease, background-color 0.18s ease, opacity 0.18s ease;
+  box-shadow: 0 6px 18px rgba(149, 113, 80, 0.28);
+}
+
+.ios-cta-btn:hover:not(:disabled) {
+  background: var(--fam-primary-dark);
+}
+
+.ios-cta-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.ios-cta-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.ios-cta-secondary {
+  background: var(--fam-cream);
+  color: var(--fam-dark);
+  box-shadow: none;
+}
+
+.ios-cta-secondary:hover {
+  background: #e5dcd1 !important;
+}
+
+.ios-text-btn {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: var(--ios-subtext);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.ios-footer-trust {
+  text-align: center;
+  font-size: 11.5px;
+  color: #9b8c7d;
+  padding-top: 4px;
+}
+
+/* Sub-header iOS */
+.ios-sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 2px 2px;
+}
+
+.ios-back-btn {
+  background: none;
+  border: none;
+  color: var(--fam-primary);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.ios-sub-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fam-dark);
+}
+
+.ios-sub-spacer {
+  width: 48px;
+}
+
+/* Pills e Inputs (1-3★) */
+.route-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 99px;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.route-pill-warn {
+  background: rgba(245, 184, 46, 0.16);
+  color: #855210;
+}
+
+.route-pill-ok {
+  background: var(--fam-gold-soft);
+  color: var(--fam-primary-dark);
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.ios-chip {
+  border: 1px solid #E8E0D7;
+  background: #FAF7F4;
+  color: var(--ios-text);
+  border-radius: 99px;
+  padding: 7px 13px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.16s ease;
+}
+
+.ios-chip.is-active {
+  background: var(--fam-primary);
+  color: #ffffff;
+  border-color: var(--fam-primary);
+}
+
+.ios-textarea {
+  width: 100%;
+  border: 1px solid #E8E0D7;
+  background: #FAF7F4;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--ios-text);
+  margin-bottom: 16px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.ios-textarea:focus {
+  border-color: var(--fam-primary);
+  background: #ffffff;
+}
+
+/* Status Circles */
+.status-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+.status-circle-warm {
+  background: var(--fam-cream);
+  color: var(--fam-primary);
+}
+
+.status-circle-gold {
+  background: linear-gradient(135deg, var(--fam-cream), var(--fam-gold-soft));
+  color: var(--fam-gold);
+}
+
+/* Preview Google Card */
+.google-preview-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: #FAF7F4;
+  border: 1px solid #E8E0D7;
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+.google-g-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(73, 54, 39, 0.07);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.google-preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.google-preview-info strong {
+  font-size: 13px;
+  color: var(--fam-dark);
+}
+
+.google-stars-mini {
+  font-size: 12px;
+  color: var(--ios-star-gold);
+  letter-spacing: 1px;
+}
+
+.google-preview-info small {
+  font-size: 11px;
+  color: var(--ios-subtext);
+}
+
